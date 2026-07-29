@@ -2,6 +2,32 @@ import sys
 
 
 class DeggPrimitiveFloat:
+    """
+    ──────────────────────────────────────────────
+    Degg Primitive Float
+    ──────────────────────────────────────────────
+    Назначение:
+      Примитивная нода-проброс float-значения.
+      Аналог CFloat из ComfyUI-Crystools.
+
+    Входы (widget):
+      float (FLOAT) — число с плавающей точкой.
+        default: 1.0
+        range:  [-sys.float_info.max .. sys.float_info.max]
+        step:   0.01
+
+    Выходы:
+      float (FLOAT) — переданное значение без изменений.
+
+    Категория:
+      My_custom_nodes
+
+    Использование:
+      Удобна для задания констант, управления seed,
+      коэффициентов масштабирования и т.д.
+    ──────────────────────────────────────────────
+    """
+
     def __init__(self):
         pass
 
@@ -22,7 +48,7 @@ class DeggPrimitiveFloat:
     RETURN_NAMES = ("float",)
     FUNCTION = "process"
     CATEGORY = "My_custom_nodes"
-    DESCRIPTION = "A primitive float node."
+    DESCRIPTION = "Primitive float passthrough. Compatible with Crystools CFloat."
 
     def process(self, float=1.0):
         return (float,)
